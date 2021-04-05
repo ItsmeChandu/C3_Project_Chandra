@@ -86,5 +86,12 @@ class RestaurantTest {
        // added 3 items in the menu and calling costOfSelectedItems method to check the order cost
         assertEquals(391,restaurant.costOfSelectedItems("Sweet corn soup", "Vegetable lasagne","Chandra's Item"));
         //total items cost 119+269+3 =391
+        assertEquals(0,restaurant.costOfSelectedItems());
+        //total cost should be 0 since we didn't select any items
+        assertEquals(3,restaurant.costOfSelectedItems("Chandra's Item",""));
+        //total should be 3 as we selected one item and passed other one as null
+        assertEquals(0,restaurant.costOfSelectedItems("",""));
+        //total cost should be 0 since we didn't passed null items without the name
+
     }
 }

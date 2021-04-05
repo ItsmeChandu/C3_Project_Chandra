@@ -76,7 +76,23 @@ public class Restaurant {
     }
 
     public int costOfSelectedItems(String... itemNames){
-    return 0;
+        int cost=0;
+        //System.out.println("length of list: "+itemNames.length);
+        if(itemNames.length==0){  // if there is empty list of selected items then the cost should be 0
+            return 0;
+        }
+        else {
+            for (String itemName : itemNames) {
+                //looping through the list of itemNames and checking
+                // if the name is empty string " " the cost 0 is added to prev cost
+                if (itemName.equals("")) cost+= 0;
+                else {
+                    Item item1 = findItemByName(itemName); // finding the item by itemName and getting its cost
+                    cost += item1.getPrice(); // assigning the cost
+                }
+            }
+        }
+        return cost; // returning the final cost of selected items
     }
 
 
